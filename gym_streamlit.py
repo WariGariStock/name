@@ -14,7 +14,6 @@ def classify(text):
         response.raise_for_status()
 
 # Streamlit interface for input
-while True:
     #qu = input('오늘은 어디를 조지고 싶으신가요? (종료하려면 "종료" 입력) >> ')
     qu = st.text_input('오늘은 어디를 조지고 싶으신가요? (종료하려면 "종료" 입력) >> ')
 
