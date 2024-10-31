@@ -14,15 +14,12 @@ def classify(text):
         response.raise_for_status()
 
 # Streamlit interface for input
-    #qu = input('오늘은 어디를 조지고 싶으신가요? (종료하려면 "종료" 입력) >> ')
-    qu = st.text_input('오늘은 어디를 조지고 싶으신가요? (종료하려면 "종료" 입력) >> ')
+qu = st.text_input('오늘은 어디를 조지고 싶으신가요? (종료하려면 "종료" 입력) >> ')
 
-    if qu !='':
-
-        if qu.lower() == "종료":
-            st.write("프로그램을 종료합니다.")
-            break
-        
+if qu:
+    if qu.lower() == "종료":
+        st.write("프로그램을 종료합니다.")
+    else:
         demo = classify(qu)
         label = demo["class_name"]
         confidence = demo["confidence"]
@@ -40,5 +37,4 @@ def classify(text):
         elif label.lower() == "chest":
             st.write('벤치프레스, 인클라인 벤치프레스, 덤벨 플라이, 푸쉬업, 체스트 머신 플라이')
 
-        
         st.write("result: '%s' with %d%% confidence" % (label, confidence))
